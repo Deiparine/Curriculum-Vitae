@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.page-content {
+	padding: 100px 0;
+}
+
+/* HEADER PAGE */
+/* HERO SECTION */
+.hero-header {
+	color: #FFFFFF;
+	font-size: 10vh;
+	font-weight: 800;
+	letter-spacing: 2px;
+}
+
+/* NAVIGATION SECTION */
+.navigation-list {
+	margin-right: 25px;
+	font-size: 20px;
+}
