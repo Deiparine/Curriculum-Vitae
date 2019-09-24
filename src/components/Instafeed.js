@@ -1,50 +1,64 @@
-import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import InstagramEmbed from 'react-instagram-embed'
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import Image from "gatsby-image"
 
-class Instafeed extends React.Component {
-	render() {
-		const Instagram = () => (
-			<StaticQuery
-				query={graphql`
-					allInstaNode {
-						edges {
-							node {
-								id
-								likes
-								comments
-								mediaType
-								preview
-								original
-								timestamp
-								caption
-								localFile {
-									childImageSharp {
-										fixed(width: 150, height: 150) {
-											...GatsbyImageSharpFixed
-										}
+const Instafeed = () => (
+	<StaticQuery
+		query={graphql`
+			query InstagramPosts {
+				allInstagramContent(limit: 12) {
+					edges {
+						node {
+							link
+							localImage {
+								childImageSharp {
+									fluid(maxHeight: 500, maxWidth: 500, quality: 100) {
+										...GatsbyImageSharpFluid_withWebp_tracedSVG
 									}
 								}
-								thumbnails {
-									src
-									config_width
-									config_height
-								}
-								dimensions {
-									height
+							}
+							images {
+								standard_resolution {
 									width
+									height
+									url
+								}
+								low_resolution {
+									url
 								}
 							}
 						}
 					}
-				`}
-		)
-		return (
-			
-		)
-	}
-}
+				}
+			}
+		`}
+		render={data => (
+			<div
+				style={{
+					marginBottom: `1rem`,
+					display: `grid`,
+					gridTemplateColumns: `repeat(4, 1fr)`,
+				}}
+			>
+				{data.allInstagramContent.edges.map((item, i) =>
+					item.node.localImage ? (
+						<div key={i}>
+							<a
+								href={item.node.link}
+								target="_blank"
+								rel="noopener noreferrer"
+								tabIndex="0"
+							>
+								<Image fluid={item.node.localImage.childImageSharp.fluid} />
+							</a>
+						</div>
+					) : (
+						<div></div>
+					)
+				)}
+			</div>
+		)}
+	/>
+)
 
 export default Instafeed
-
-const 

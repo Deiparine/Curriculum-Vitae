@@ -1,19 +1,19 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Container, Row, Col } from 'react-bootstrap'
+import React from "react"
+import { graphql } from "gatsby"
+import { Container, Row, Col } from "react-bootstrap"
 
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import Header from '../components/Header'
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Header from "../components/Header"
 
 class Portfolio extends React.Component {
 	render(props) {
-		const siteTitle = 'PORTFOLIO'
+		const siteTitle = "PORTFOLIO"
 		const siteDescription = this.props.data.site.siteMetadata.description
 
 		return (
 			<Layout>
-				<Header heroHeader='PORTFOLIO' />
+				<Header heroHeader="PORTFOLIO" />
 				<SEO title={siteTitle} description={siteDescription} />
 				<div className="page-content">
 					<Container>

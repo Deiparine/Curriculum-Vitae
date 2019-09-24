@@ -1,25 +1,29 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Container, Row, Col } from 'react-bootstrap'
+import React from "react"
+import { graphql } from "gatsby"
+import { Container, Row, Col } from "react-bootstrap"
 
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-import Header from '../components/Header'
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
+import Header from "../components/Header"
+import Instafeed from "../components/Instafeed"
 
 class About extends React.Component {
 	render(props) {
-		const siteTitle = 'ABOUT'
+		const siteTitle = "ABOUT"
 		const siteDescription = this.props.data.site.siteMetadata.description
 
 		return (
 			<Layout>
-				<Header heroHeader='ABOUT' />
+				<Header heroHeader="ABOUT" />
 				<SEO title={siteTitle} description={siteDescription} />
 				<div className="page-content">
 					<Container>
 						<Row>
 							<Col>
 								<h1>About</h1>
+							</Col>
+							<Col>
+								<Instafeed />
 							</Col>
 						</Row>
 					</Container>

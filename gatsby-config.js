@@ -34,13 +34,10 @@ module.exports = {
 			},
 		},
 		{
-			resolve: `gatsby-source-instagram`,
+			resolve: `gatsby-source-instagram-all`,
 			options: {
-				type: `user-profile`,
-				username: `@the.baemaxx`,
-				access_token: `2166738462.c339e7c.ab110dc78f274812b4d0e75a28d128f3`,
-				instagram_id: `c339e7cb341b41e29c09e18612df271b`,
-			}
+				access_token: "2166738462.c339e7c.ab110dc78f274812b4d0e75a28d128f3",
+			},
 		},
 	],
 }
